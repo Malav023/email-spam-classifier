@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express'); 
 const cors = require('cors');
 const axios = require('axios');
 
@@ -10,7 +10,7 @@ app.post("/api/model", async (req, res) => {
     try {
         const {email} = req.body; 
 
-        const pythonResponse=await axios.post("http://localhost:5001/api/predict",{
+        const pythonResponse=await axios.post(process.env.PYTHON_SERVICE_URL + "/api/predict",{
             email:email
         });
 
@@ -34,6 +34,7 @@ app.post("/api/model", async (req, res) => {
         res.status(500).json({ error: "Backend bridge failed" }); }    
 });
 
-app.listen(5000, () => {
-    console.log("Server running on port 5000.")
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}.`);
 });
