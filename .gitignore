@@ -1,0 +1,16 @@
+node_modules/
+
+model/data/combined_data.csv
+model/data/spam_data.csv
+model/data/spam_data1.csv
+model/data/spam_data2.csv
+model/data/com_data/
+
+.venv/
+venv/
+env/
+
+__pycache__/
+*.pyc
+
+.env
