@@ -39,7 +39,7 @@ export default function SpamClassifier() {
     setResult(null);
 
     try {
-      const response = await fetch(process.env.REACT_APP_API_URL + "/api/model",{
+      const response = await fetch(import.meta.env.VITE_API_URL + "/api/model",{
         method:"POST", 
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({email})
